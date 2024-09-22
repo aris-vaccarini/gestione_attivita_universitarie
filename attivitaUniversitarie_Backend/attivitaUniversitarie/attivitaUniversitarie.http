@@ -1,0 +1,6 @@
+@attivitaUniversitarie_HostAddress = https://localhost:7163
+
+GET {{attivitaUniversitarie_HostAddress}}/weatherforecast/
+Accept: application/json
+
+###

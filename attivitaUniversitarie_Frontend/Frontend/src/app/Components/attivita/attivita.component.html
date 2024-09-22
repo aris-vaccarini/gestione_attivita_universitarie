@@ -1,0 +1,86 @@
+<div class="container">
+  <div class="header-container">
+  <h2 class="title">Gestione attività universitarie</h2>
+  <div class="logout-container">
+    <button type="button" (click)="logout()">Logout</button>
+  </div>
+</div>
+  
+  <ng-template #noAttivita>
+    <p>Nessuna attività disponibile al momento.</p>
+  </ng-template>
+
+  <div class="table-container">
+    <table>
+      <thead>
+        <tr>
+          <th>Titolo</th>
+          <th>Descrizione</th>
+          <th>Data di Scadenza</th>
+          <th>Stato</th>
+          <th>Azioni</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let attivita of attivitaList">
+          <td>{{ attivita.titolo }}</td>
+          <td>{{ attivita.descrizione }}</td>
+          <td>{{ attivita.scadenza ? (attivita.scadenza | date: 'dd/MM/yyyy, HH:mm') : 'N/A' }}</td>
+          <td>{{ attivita.stato }}</td>
+          <td>
+            <button (click)="editAttivita(attivita.id)">Modifica</button>
+            <button (click)="deleteAttivita(attivita.id)">Elimina</button>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <div class="form-container">
+    <form [formGroup]="attivitaForm" (ngSubmit)="selectedAttivita ? updateAttivita() : addAttivita()">
+      
+      <div class="form-row">
+        <div class="form-field">
+          <label for="titolo">Titolo</label>
+          <input id="titolo" formControlName="titolo" />
+          <div *ngIf="attivitaForm.get('titolo')?.invalid && attivitaForm.get('titolo')?.touched" class="error-message">
+            Il titolo è obbligatorio.
+          </div>
+        </div>
+  
+        <div class="form-field">
+          <label for="descrizione">Descrizione</label>
+          <input id="descrizione" formControlName="descrizione" />
+          <div *ngIf="attivitaForm.get('descrizione')?.invalid && attivitaForm.get('descrizione')?.touched" class="error-message">
+            La descrizione è obbligatoria.
+          </div>
+        </div>
+  
+        <div class="form-field">
+          <label for="scadenza">Data di Scadenza</label>
+          <input id="scadenza" formControlName="scadenza" type="datetime-local" />
+          <div *ngIf="attivitaForm.get('scadenza')?.invalid && attivitaForm.get('scadenza')?.touched" class="error-message">
+            La data di scadenza è obbligatoria.
+          </div>
+        </div>
+  
+        <div class="form-field">
+          <label for="stato">Stato</label>
+          <select id="stato" formControlName="stato">
+            <option value="" disabled>Seleziona uno stato</option>
+            <option *ngFor="let stato of stati" [value]="stato">{{ stato }}</option>
+          </select>
+          <div *ngIf="attivitaForm.get('stato')?.invalid && attivitaForm.get('stato')?.touched" class="error-message">
+            Seleziona uno stato.
+          </div>
+        </div>
+      </div>
+  
+      <div class="form-buttons">
+        <button type="submit" *ngIf="!selectedAttivita">Aggiungi</button>
+        <button type="submit" *ngIf="selectedAttivita">Aggiorna</button>
+        <button type="button" (click)="resetForm()" *ngIf="selectedAttivita">Annulla Modifica</button>
+      </div>
+    </form>
+  </div>
+</div>

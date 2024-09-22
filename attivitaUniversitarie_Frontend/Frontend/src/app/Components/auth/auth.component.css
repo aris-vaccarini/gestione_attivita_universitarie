@@ -1,0 +1,80 @@
+/* Container principale per l'autenticazione */
+.auth-container {
+    margin-top: -150px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 100vh; /* Occupa tutta l'altezza della finestra */
+    background-color: #f8f9fa; /* Colore di sfondo chiaro */
+  }
+  
+  /* Titolo */
+  .auth-title {
+    font-size: 2rem;
+    margin-bottom: 20px;
+    color: #343a40; /* Colore del testo */
+  }
+  
+  /* Stile del form */
+  .auth-form {
+    width: 100%;
+    max-width: 400px; /* Larghezza massima del form */
+    padding: 20px;
+    background-color: #ffffff; /* Colore di sfondo del form */
+    border-radius: 8px; /* Angoli arrotondati */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Ombra leggera */
+  }
+  
+  /* Input del form */
+  .auth-form input {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 15px;
+    border: 1px solid #ced4da; /* Colore del bordo */
+    border-radius: 4px; /* Angoli arrotondati */
+    font-size: 1rem;
+  }
+  
+  /* Pulsante */
+  .auth-form button {
+    width: 100%;
+    padding: 10px;
+    background-color: #007bff; /* Colore del pulsante */
+    color: white; /* Colore del testo del pulsante */
+    border: none;
+    border-radius: 4px; /* Angoli arrotondati */
+    font-size: 1rem;
+    cursor: pointer; /* Cambia il cursore su hover */
+  }
+  
+  /* Pulsante hover */
+  .auth-form button:hover {
+    background-color: #0056b3; /* Colore del pulsante al passaggio del mouse */
+  }
+  
+  /* Link per il toggle tra login e registrazione */
+  .auth-toggle {
+    margin-top: 15px;
+    color: #007bff; /* Colore del link */
+    cursor: pointer; /* Cambia il cursore su hover */
+  }
+  
+  .auth-toggle:hover {
+    text-decoration: underline; /* Sottolinea al passaggio del mouse */
+  }
+  
+  .toggle-button {
+    margin-top: 15px;
+    background-color: #007bff;
+    color: white;
+    border: 1px solid #ccc;
+    padding: 10px;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 14px;
+  }
+  
+  .toggle-button:hover {
+    background-color: #0056b3;
+  }
